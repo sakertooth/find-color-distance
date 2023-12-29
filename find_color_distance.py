@@ -62,6 +62,8 @@ else:
 targets = set(targets)
 palette = set(palette)
 
-results = [find_distance(target, color) for color in palette for target in targets]
-results = sorted(results, key=lambda result: result[2])
-print(tabulate(results, headers=['Target', 'Color', 'Distance'], stralign='left'))
+for target in targets:
+    results = [find_distance(target, color) for color in palette]
+    results = sorted(results, key=lambda result: result[2])
+    print(tabulate(results, headers=['Target', 'Color', 'Distance'], stralign='left'))
+    print()
